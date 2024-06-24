@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/FitnessClub/static/css/main.f855e6bc.css",
+    "main.js": "/FitnessClub/static/js/main.2fdcbd43.js",
+    "static/js/453.18ee9ef3.chunk.js": "/FitnessClub/static/js/453.18ee9ef3.chunk.js",
+    "static/media/logo.svg": "/FitnessClub/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/FitnessClub/index.html",
+    "main.f855e6bc.css.map": "/FitnessClub/static/css/main.f855e6bc.css.map",
+    "main.2fdcbd43.js.map": "/FitnessClub/static/js/main.2fdcbd43.js.map",
+    "453.18ee9ef3.chunk.js.map": "/FitnessClub/static/js/453.18ee9ef3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.2fdcbd43.js"
+  ]
+}
