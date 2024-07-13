@@ -1,58 +1,9 @@
-/* import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { FaDumbbell, FaBars, FaTimes } from 'react-icons/fa';
-import Button from './Button';
-
-export default function Navbar() {
-  const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true);
-
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
-
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
-  };
-
-  useEffect(() => {
-    showButton();
-  }, []);
-
-  window.addEventListener('resize', showButton);
-
-  return (
-    <nav className="w-full bg-gray-800 p-4">
-      <div className="navbar-container flex justify-between items-center max-w-screen-xl mx-auto">
-        <Link to="/" className="flex items-center text-white text-2xl font-bold" onClick={closeMobileMenu}>
-          <FaDumbbell className="mr-2" /> GYM
-        </Link>
-        <div className="md:hidden" onClick={handleClick}>
-          {click ? <FaTimes className="text-white text-3xl" /> : <FaBars className="text-white text-3xl" />}
-        </div>
-        <ul className={`md:flex md:space-x-6 absolute md:relative top-0 left-0 w-full bg-gray-800 md:bg-transparent md:top-auto md:left-auto md:w-auto md:flex-row ${click ? 'flex flex-col items-center py-8' : 'hidden'}`}>
-          <li className="nav-item">
-            <Link to="/" className="text-white text-lg p-2 hover:text-yellow-500" onClick={closeMobileMenu}>Home</Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/services" className="text-white text-lg p-2 hover:text-yellow-500" onClick={closeMobileMenu}>Services</Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/membership" className="text-white text-lg p-2 hover:text-yellow-500" onClick={closeMobileMenu}>Membership</Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/contact" className="text-white text-lg p-2 hover:text-yellow-500" onClick={closeMobileMenu}>Contact</Link>
-          </li>
-        </ul>
-        {button && (
-          <div className="hidden md:block">
-            <Button buttonStyle="btn--outline">SIGN UP</Button>
-          </div>
-        )}
-      </div>
-    </nav>
-  );
-} */
+/* App.css */
+.scrollbar-thumb {
+    background-color: #888; /* Customize thumb color */
+  }
+  
+  .scrollbar-track {
+    background-color: #f0f0f0; /* Customize track color */
+  }
+  

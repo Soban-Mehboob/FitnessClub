@@ -1,40 +1,47 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { CiDumbbell } from "react-icons/ci";
-import { FaBars, FaTimes } from "react-icons/fa"; // Add icons for the mobile menu
+import React, { useState } from 'react';
+import { FaDumbbell } from 'react-icons/fa';
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 
 export default function Navbar() {
-  const [click, setClick] = useState(false); // State to manage the mobile menu visibility
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleClick = () => setClick(!click); // Toggle the menu
-  const closeMobileMenu = () => setClick(false); // Close the menu on link click
+  const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="w-full border-b-2 border-rose-600 bg-white shadow-md">
-      <div className="navbar-container flex justify-between items-center max-w-screen-lg mx-auto p-4">
-        <Link to="/" className="flex items-center space-x-2" onClick={closeMobileMenu}>
-          <CiDumbbell className="text-3xl text-rose-600" />
-          <h2 className="text-xl font-bold">
-            Fitness<span className="text-rose-600">Club</span>
-          </h2>
-        </Link>
-        <div className="md:hidden" onClick={handleClick}>
-          {click ? <FaTimes className="text-3xl text-rose-600" /> : <FaBars className="text-3xl text-rose-600" />}
+    <nav className="fixed top-0 left-0 w-full transparent p-4 z-10">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-4">
+        <a href="#home" className="flex items-center text-2xl font-bold text-white">
+          <FaDumbbell className="text-red-500" />
+          <span className="ml-2">Fitness<span className="text-red-500">Club</span></span>
+        </a>
+        <div className="hidden md:flex space-x-6">
+          <a href="#home" className="text-white hover:text-red-500 transition duration-300 hover:border-b-2 border-red-500">Home</a>
+          <a href="#about" className="text-white hover:text-red-500 transition duration-300 hover:border-b-2 border-red-500">About</a>
+          <a href="#memberships" className="text-white hover:text-red-500 transition duration-300 hover:border-b-2 border-red-500">Memberships</a>
+          <a href="#contact" className="text-white hover:text-red-500 transition duration-300 hover:border-b-2 border-red-500">Contact</a>
         </div>
-        <ul className={`flex-col md:flex md:flex-row md:space-x-4 absolute md:relative top-16 md:top-auto left-0 md:left-auto w-full md:w-auto bg-white md:bg-transparent md:p-0 ${click ? 'flex' : 'hidden'} md:flex`}>
-          <li className="hover:text-rose-600 p-4 md:p-0">
-            <Link to="/" onClick={closeMobileMenu}>Home</Link>
-          </li>
-          <li className="hover:text-rose-600 p-4 md:p-0">
-            <Link to="/membership" onClick={closeMobileMenu}>Membership</Link>
-          </li>
-          <li className="hover:text-rose-600 p-4 md:p-0">
-            <Link to="/trainers" onClick={closeMobileMenu}>Trainers</Link>
-          </li>
-          <li className="hover:text-rose-600 p-4 md:p-0">
-            <Link to="/contact" onClick={closeMobileMenu}>Contact</Link>
-          </li>
-        </ul>
+        <button
+          className="md:hidden text-2xl text-white"
+          onClick={toggleMenu}
+        >
+          {isOpen ? <AiOutlineClose className="text-white" /> : <AiOutlineMenu className="text-white" />}
+        </button>
+      </div>
+      <div className={`md:hidden fixed top-0 right-0 w-64 h-screen transition-transform transform ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className="p-4">
+          <div className="flex items-center justify-between mb-4 bg-black">
+            <FaDumbbell className="text-white text-2xl " />
+            <button onClick={toggleMenu} className="text-white">
+              <AiOutlineClose className="text-2xl" />
+            </button>
+          </div>
+          <ul className="space-y-4">
+            <li><a href="#home" className="block text-white transition duration-300 hover:border-b-2 border-red-500" onClick={toggleMenu}>Home</a></li>
+            <li><a href="#about" className="block text-white transition duration-300 hover:border-b-2 border-red-500" onClick={toggleMenu}>About</a></li>
+            <li><a href="#memberships" className="block text-white transition duration-300 hover:border-b-2 border-red-500" onClick={toggleMenu}>Memberships</a></li>
+            <li><a href="#contact" className="block text-white transition duration-300 hover:border-b-2 border-red-500" onClick={toggleMenu}>Contact</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
   );
